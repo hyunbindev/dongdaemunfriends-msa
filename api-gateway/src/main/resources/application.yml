@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: local
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: INFO
