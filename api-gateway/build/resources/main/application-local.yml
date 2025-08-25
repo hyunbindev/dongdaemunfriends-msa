@@ -1,0 +1,36 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
+            allowed-origins:
+              - http://localhost:3000
+            allowed-headers: "*"
+            allowed-methods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+
+      routes:
+        - id: ddm-friends-api
+          uri: lb://dongdaemunkiller
+          predicates:
+            - Path=/api/**

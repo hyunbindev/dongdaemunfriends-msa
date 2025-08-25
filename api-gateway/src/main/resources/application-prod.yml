@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: ddm-friends-api
+          uri: lb://dongdaemunkiller_was
+          predicates:
+            - Path=/api/**
