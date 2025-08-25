@@ -10,3 +10,4 @@ logging:
       springframework:
         cloud:
           gateway: INFO
+
