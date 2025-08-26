@@ -46,4 +46,4 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-api-gateway:latest
-            docker service update --with-registry-auth --image ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-api-gateway:latest --force api-gateway
+            docker service update --with-registry-auth --image ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-api-gateway:latest --force dongdaemunkiller_api-gateway
