@@ -34,7 +34,7 @@ jobs:
           IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends
           VERSION=${{ github.sha }}
           docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
-          docker push $IMAGE:#VERSION
+          docker push $IMAGE:$VERSION
           docker push $IMAGE:latest
 
       - name: Deploy to Docker Swarm
