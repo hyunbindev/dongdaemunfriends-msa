@@ -31,7 +31,7 @@ jobs:
 
       - name: Docker image Build and Push
         run: |
-          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends/api-gateway
+          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends
           VERSION=${{ github.sha }}
           docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
           docker push $IMAGE:#VERSION
