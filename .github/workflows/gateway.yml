@@ -32,7 +32,7 @@ jobs:
       - name: Docker image Build and Push
         working-directory: ./api-gateway
         run: |
-          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends
+          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends/api-gateway
           VERSION=${{ github.sha }}
           docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
           docker push $IMAGE:$VERSION
