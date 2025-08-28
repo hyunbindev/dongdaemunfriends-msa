@@ -17,6 +17,9 @@ jobs:
       SPRING_PROFILES_ACTIVE: prod
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Copy StackFile to server
         uses: appleboy/scp-action@master
         with:
