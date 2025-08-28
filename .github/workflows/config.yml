@@ -50,5 +50,5 @@ jobs:
              --with-registry-auth \
              --env-add GIT_ACCESS_KEY=${{ secrets.GIT_ACCESS_KEY }} \
              --env-add ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }} \
-             --env-add SPRING_PROFILES_ACTIVE=${{ prod }} \
+             --env-add SPRING_PROFILES_ACTIVE=prod \
              --image ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-config:latest --force dongdaemunkiller_config
