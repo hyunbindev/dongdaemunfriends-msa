@@ -1,6 +1,7 @@
 server:
   port: 8888
-
+  tomcat:
+	relaxed-host-validation: true
 
 spring:
   application:
