@@ -9,6 +9,8 @@ eureka:
     fetch-registry: true
 
 spring:
+  config:
+    import: "configsserver:http://dongdaemunkiller_config:8888"
   cloud:
     gateway:
       discovery:
