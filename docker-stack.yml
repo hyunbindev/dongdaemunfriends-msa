@@ -35,6 +35,7 @@ services:
       restart_policy:
         condition: on-failure
 
+
 networks:
   app-network:
     driver: overlay
