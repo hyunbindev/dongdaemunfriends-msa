@@ -14,7 +14,7 @@ spring:
       server:
         git:
           uri: https://github.com/hyunbindev/dongdaemunfriends-msa.git
-          search-paths: config/config-repo, config/config-repo/api-gateway
+          search-paths: config/config-repo/**
           username: hyunbinDev
           password: ${GIT_ACCESS_KEY}
 
