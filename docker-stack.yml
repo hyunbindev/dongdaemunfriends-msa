@@ -11,7 +11,7 @@ services:
         condition: on-failure
 
   api-gateway:
-    image: api-gateway:latest
+    image: hyunbindev/dongdaemunfriends-api-gateway:latest
     environment:
       - SPRING_PROFILES_ACTIVE=prod
     ports:
@@ -24,9 +24,12 @@ services:
         condition: on-failure
   
   config:
-    image: dongdaemunfriends-config:latest
+    image: hyunbindev/dongdaemunfriends-config:latest
     networks:
       - app-network
+      - GIT_ACCESS_KEY=${GIT_ACCESS_KEY}
+      - ENCRYPT_KEY=${ENCRYPT_KEY}
+      - SPRING_PROFILES_ACTIVE=prod
     deploy:
       replicas: 1
       restart_policy:
