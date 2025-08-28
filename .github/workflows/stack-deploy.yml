@@ -26,7 +26,6 @@ jobs:
           source: docker-stack.yml
           target: /home/${{ secrets.SERVER_USER }}/docker-stack.yml
     
-    steps:
       - name: Deploy Docker-Stack
         uses: appleboy/ssh-action@master
         with:
