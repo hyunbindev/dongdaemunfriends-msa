@@ -10,8 +10,8 @@ eureka:
 
 spring:
   config:
-    name: jwt-config
-    import: "configserver:http://dongdaemunkiller_config:8888/jwt-config.yml"
+    import: "optional:http://dongdaemunkiller_config:8888/"
+	name: jwt-config
   cloud:
     gateway:
       discovery:
