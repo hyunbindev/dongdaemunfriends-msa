@@ -25,11 +25,12 @@ services:
   
   config:
     image: hyunbindev/dongdaemunfriends-config:latest
-    networks:
-      - app-network
+    environment:
       - GIT_ACCESS_KEY=${GIT_ACCESS_KEY}
       - ENCRYPT_KEY=${ENCRYPT_KEY}
       - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - app-network
     deploy:
       replicas: 1
       restart_policy:
