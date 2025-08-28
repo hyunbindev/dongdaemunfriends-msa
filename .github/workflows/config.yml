@@ -21,7 +21,7 @@ jobs:
       
       - name: Build Gradle
         working-directory: ./config
-        run: ./gradlew clean build -x test
+        run: chmod +x && ./gradlew clean build -x test
 
       - name: Docker Hub Login
         uses: docker/login-action@v2
