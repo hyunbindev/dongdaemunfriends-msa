@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hyunbindev/dongdaemunfriends-msa.git
+          search-paths: config/config-repo
+          username: hyunbinDev
+          password: ${GIT_ACCESS_KEY}
+
+encrypt:
+  key: ${ENCRYPT_KEY}
