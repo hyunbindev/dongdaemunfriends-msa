@@ -1,0 +1,54 @@
+name: Spring Cloud Config CI/CD Pipe line
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "config/**"
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set Up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      
+      - name: Build Gradle
+        working-directory: ./config
+        run: ./gradlew clean build -x test
+
+      - name: Docker Hub Login
+        uses: docker/login-actions@v2
+        with:
+          username: ${{ secretss.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Image Build and Push
+        working-directory: ./config
+        run: |
+          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-config
+          VERSION=${{ github.sha }}
+          docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
+          docker push $IMAGE:$VERSION
+          docker push $IMAGE:latest
+        
+      - name: Deploy to Docker Swarm
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-config:latest
+            docker service update \
+             --with-registry-auth \
+             --env-add GIT_ACCESS_KEY=${{ secrets.GIT_ACCESS_KEY }} \
+             --env-add ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }} \
+             --env-add SPRING_PROFILES_ACTIVE=${{ prod }} \
+             --image ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-config:latest --force dongdaemunkiller_config

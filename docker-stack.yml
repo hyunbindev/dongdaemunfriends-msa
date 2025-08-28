@@ -22,6 +22,15 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
+  
+  config:
+    image: dongdaemunfriends-config:latest
+    networks:
+      - app-network
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
 
 networks:
   app-network:
