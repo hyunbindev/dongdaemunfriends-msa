@@ -23,5 +23,5 @@ encrypt:
 
 logging:
   level:
-	org.springframework.cloud.config.server: DEBUG
-	org.eclipse.jgit: DEBUG
+    org.springframework.cloud.config.server: DEBUG
+    org.eclipse.jgit: DEBUG
