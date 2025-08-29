@@ -15,12 +15,13 @@ spring:
       server:
         git:
           uri: https://github.com/hyunbindev/dongdaemunfriends-msa.git
-          search-paths: config/config-repo/**
+          search-paths: config/config-repo
           username: hyunbinDev
           password: ${GIT_ACCESS_KEY}
 
 encrypt:
   key: ${ENCRYPT_KEY}
+  key: 
 
 logging:
   level:
