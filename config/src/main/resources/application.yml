@@ -21,7 +21,6 @@ spring:
 
 encrypt:
   key: ${ENCRYPT_KEY}
-  key: 
 
 logging:
   level:
