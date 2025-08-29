@@ -19,6 +19,6 @@ spring:
           lower-case-service-id: true
       routes:
         - id: ddm-friends-api
-          uri: lb://dongdaemunkiller_was
+          uri: lb://dongdaemunkiller
           predicates:
             - Path=/api/**
