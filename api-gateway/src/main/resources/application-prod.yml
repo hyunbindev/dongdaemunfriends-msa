@@ -10,7 +10,7 @@ eureka:
 
 spring:
   config:
-    import: "configserver:lb://config"
+    import: "configserver:http://config:8888"
   cloud:
     gateway:
       discovery:
