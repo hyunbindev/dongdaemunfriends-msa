@@ -30,13 +30,13 @@ jobs:
       - name: Build Docker Image
         working-directory: ./board
         run: |
-          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunkiller-board
+          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-board
           VERSION=${{ github.sha }}
           docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
 
       - name: Push Docker Image
         run: |
-          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunkiller-board
+          IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-board
           VERSION=${{ github.sha }}
           docker push $IMAGE:$VERSION
           docker push $IMAGE:latest
@@ -48,5 +48,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/dongdaemunkiller-board:latest
-            docker service update --image ${{ secrets.DOCKER_USERNAME }}/dongdaemunkiller-board:latest --force dongdaemunkiller_board
+            docker pull ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-board:latest
+            docker service update --image ${{ secrets.DOCKER_USERNAME }}/dongdaemunfriends-board:latest --force dongdaemunkiller_board
