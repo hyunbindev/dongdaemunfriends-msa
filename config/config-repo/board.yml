@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: board
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE:local}
   main:
     headless: false
   security:
