@@ -23,7 +23,9 @@ jobs:
           
       - name: Gradle Build
         working-directory: ./board
-        run: ./gradlew clean build -x test
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build -x test
       
       - name: Build Docker Image
         working-directory: ./board
