@@ -8,7 +8,7 @@ on:
       - "board/**"
   
 jobs:
-  build-and-deploy:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +22,11 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: Gradle Build
+        working-directory: ./board
         run: ./gradlew clean build -x test
       
       - name: Build Docker Image
+        working-directory: ./board
         run: |
           IMAGE=${{ secrets.DOCKER_USERNAME }}/dongdaemunkiller-board
           VERSION=${{ github.sha }}
