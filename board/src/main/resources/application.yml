@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: board
+  profiles:
+    active: ${spring_profiles_active:local}
+  config:
+    import: optional:configserver:http://localhost:8888

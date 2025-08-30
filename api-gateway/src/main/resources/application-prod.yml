@@ -22,3 +22,9 @@ spring:
           uri: lb://dongdaemunkiller
           predicates:
             - Path=/api/**
+        - id: board
+          uri: lb://board
+          predicates:
+            - Path=/api/**
+          filters:
+

@@ -1,0 +1,66 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: board
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  main:
+    headless: false
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            #kakao Oauth2 client Id
+            client-id: "{cipher}61cd7c512088522e667c248bd639ff2cdffbe9c1ed78965c4bc8738c0cb52c8c0b5779655499ee8ea20d3d549cbf4078d78bd3d990bc6d232b204d8d676bedd7"
+            #kakao Oauth2 client secret Key
+            client-secret: "{cipher}ed3090c47eee27dca867af96be34420ab73ac84ff5290120d6195c49b72b66286943140f001843f287af71b05e1fde2b531268bc6668f213618331d9c1de2aa4"
+            authorization-grant-type: authorization_code
+            authentication-method: client_secret_post
+            client-name: Kakao
+            redirect-uri: "http://ddm.hyunbindev.site/board/api/login/oauth2/code/kakao" #client redirect uri
+            scope:
+              - profile_nickname
+              - profile_image
+      provider:
+        kakao:
+          authorization-uri: "https://kauth.kakao.com/oauth/authorize"
+          token-uri: "https://kauth.kakao.com/oauth/token"
+          user-info-uri: "https://kapi.kakao.com/v2/user/me"
+          user-name-attribute: id
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  jwt:
+    access:
+      #accessSecretKey
+      secret: "{cipher}330a0c7af4d8780f4c776ea70b1b635d1087a6ed2a824137f50418dd8e112b833e5976f8940e136481c9d44d79af94ebc0e871b7774e7396bcfeadca4de327a21805c9054e0089cb6f60a01f38977399b4c514eb40f5615d1b8a6e1c9bea4492"
+      validity: 3600000 #validationTime
+    refresh:
+      #refreshSecretKey
+      sercret: "{cipher}0078797c93c96a6b15ae80b241e847b8cdcc27e9065011f16b41ee31fc4d107e38dbc0ae58d9d0be3f5e3ed375c33739cf91ce0b374e189cdc507c76cafe380f42abab1ebdd8dd89c3cdf320cd53799d"
+      validity: 60480000 #validationTime
+
+minio:
+  bucket:
+    bucket-name:
+      persona: persona
+      news: news
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+  health:
+    show-details: always
+  metrics:
+    enable:
+      processors: false
+      system: false
+

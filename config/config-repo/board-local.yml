@@ -1,0 +1,52 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  auth:
+    redirect: http://localhost:3000/auth
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            redirect-uri: "http://localhost:8080/dongdaemunkiller/api/login/oauth2/code/kakao"
+  datasource:
+    url: "jdbc:mysql://localhost:3306/dongdaemunkiller?useUnicode=true&characterEncoding=utf8"
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: dongdaemunkiller
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+
+minio:
+  url: "http://localhost:9000"
+  public-url: "http://localhost:9000"
+  access-key: hyunbinDev
+  secret-key: "@wu71903619"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8761/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  instance:
+    prefer-ip-address: true

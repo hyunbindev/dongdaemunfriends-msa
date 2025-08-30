@@ -1,0 +1,49 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            redirect-uri: "https://ddm.hyunbindev.site/board/api/login/oauth2/code/kakao"
+  datasource:
+    url: "jdbc:mysql://mysql:3306/dongdaemunkiller?useUnicode=true&characterEncoding=utf8"
+    username: "{cipher}2fc0ecf7b004bed7be05bafe21777a2699df4ad1e88bfe86a960516c3b610df0"
+    password: "{cipher}994d60c95cc078b106e389cc65cb11d998156e2ea46b272f5ff59f765e7742c9" #My SQL Password
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  redis:
+    host: redis
+    port: 6379
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+      database: dongdaemunkiller
+  auth:
+    redirect: "https://ddm.hyunbindev.site/auth"
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: hyunbinDev
+    password: "{cipher}994d60c95cc078b106e389cc65cb11d998156e2ea46b272f5ff59f765e7742c9"
+
+minio:
+  url: "http://minio:9000"
+  public-url: "https://ddm.hyunbindev.site/minio"
+  access-key: "hyunbinDev"
+  secret-key: "{cipher}994d60c95cc078b106e389cc65cb11d998156e2ea46b272f5ff59f765e7742c9"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://eurekaserver:8761/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  instance:
+    prefer-ip-address: true
