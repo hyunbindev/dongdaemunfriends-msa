@@ -3,7 +3,7 @@ spring:
     import: configserver:http://config:8888
 
 eureka:
-  clientt:
+  client:
     service-url:
       defaultZone: http://eurekaserver:8761/eureka/
     register-with-eureka: true
