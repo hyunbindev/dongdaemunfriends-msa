@@ -11,7 +11,7 @@ spring:
   datasource:
     url: "jdbc:mysql://mysql:3306/dongdaemunkiller?useUnicode=true&characterEncoding=utf8"
     username: "{cipher}2fc0ecf7b004bed7be05bafe21777a2699df4ad1e88bfe86a960516c3b610df0"
-    password: "{cipher}b0847865fddc32fbb73c9ebaa0c8d46933a6bc4a2af6734d71acb9d9c917867d" #My SQL Password
+    password: "{cipher}994d60c95cc078b106e389cc65cb11d998156e2ea46b272f5ff59f765e7742c9" #My SQL Password
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
