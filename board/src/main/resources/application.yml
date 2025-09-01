@@ -11,4 +11,4 @@ spring:
   profiles:
     active: prod
   config:
-    import: configserver:http://config:8888/board/prod/master
+    import: "configserver:http://config:8888/board?label=master&profile=prod"
