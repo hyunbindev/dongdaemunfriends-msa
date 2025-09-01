@@ -1,7 +1,14 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
 spring:
   application:
     name: board
   profiles:
     active: prod
   config:
-    import: optional:configserver:http://config:8888/board/prod/master
+    import: optional:configserver:http://config:8888
