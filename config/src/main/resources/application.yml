@@ -20,7 +20,7 @@ spring:
           password: ${GIT_ACCESS_KEY}
 
 encrypt:
-  #key: ${ENCRYPT_KEY}
+  key: ${ENCRYPT_KEY}
 
 logging:
   level:
