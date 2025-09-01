@@ -1,4 +1,4 @@
 spring:
   cloud:
     config:
-      import: configserver:http://config:8888
+      import: configserver:http://config:8888/board/prod/master
