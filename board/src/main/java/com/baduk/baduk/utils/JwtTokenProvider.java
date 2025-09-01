@@ -29,7 +29,7 @@ public class JwtTokenProvider {
 	@Value("${spring.jwt.access.validity}")
 	private long accessTokenValidity;
 	
-	@Value("${spring.jwt.refresh.sercret}")
+	@Value("${spring.jwt.refresh.secret}")
 	private String refreshTokenSecretKey;
 	
 	@Value("${spring.jwt.refresh.validity}")

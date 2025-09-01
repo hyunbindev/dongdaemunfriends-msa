@@ -39,7 +39,7 @@ spring:
       validity: 3600000 #validationTime
     refresh:
       #refreshSecretKey
-      sercret: "{cipher}0078797c93c96a6b15ae80b241e847b8cdcc27e9065011f16b41ee31fc4d107e38dbc0ae58d9d0be3f5e3ed375c33739cf91ce0b374e189cdc507c76cafe380f42abab1ebdd8dd89c3cdf320cd53799d"
+      secret: "{cipher}0078797c93c96a6b15ae80b241e847b8cdcc27e9065011f16b41ee31fc4d107e38dbc0ae58d9d0be3f5e3ed375c33739cf91ce0b374e189cdc507c76cafe380f42abab1ebdd8dd89c3cdf320cd53799d"
       validity: 60480000 #validationTime
 
 minio:
