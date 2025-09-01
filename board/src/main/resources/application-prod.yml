@@ -1,8 +1,0 @@
-spring:
-  config:
-    import: configserver:http://config:8888/
-  cloud:
-    config:
-    name: board
-    profile: prod
-    label: master
