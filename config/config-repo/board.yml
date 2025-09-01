@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: board
-  profiles:
-    active: prod
   main:
     headless: false
   security:
