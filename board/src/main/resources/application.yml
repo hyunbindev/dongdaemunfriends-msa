@@ -9,11 +9,6 @@ spring:
   application:
     name: board
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE:local}
+    active: prod
   config:
-    import: configserver:http://config:8888
-  cloud:
-    config:
-      name: board
-      profile: prod
-      label: master
+    import: configserver:http://config:8888/board/prod/master
