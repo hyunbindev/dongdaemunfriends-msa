@@ -21,7 +21,6 @@ spring:
 
 encrypt:
   key: ${ENCRYPT_KEY}
-
 logging:
   level:
     org.springframework.cloud.config.server: DEBUG
