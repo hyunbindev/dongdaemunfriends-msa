@@ -1,5 +1,4 @@
 spring:
   cloud:
     config:
-      import: configserver:http://config:8888/board/prod
-      label: master
+      import: configserver:http://config:8888
