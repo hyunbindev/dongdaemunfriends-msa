@@ -2,9 +2,3 @@ spring:
   config:
     import: configserver:http://config:8888/board/prod/master
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eurekaserver:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
