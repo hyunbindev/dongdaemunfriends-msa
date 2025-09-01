@@ -7,7 +7,7 @@ spring:
           search-path: "config/config-repo"
           username: hyunbinDev
           password: ${GIT_ACCESS_KEY}
-
+          default-label: master
 eureka:
   client:
     register-with-eureka: true

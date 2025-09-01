@@ -18,6 +18,7 @@ spring:
           search-paths: config/config-repo
           username: hyunbinDev
           password: ${GIT_ACCESS_KEY}
+          default-label: master
 
 encrypt:
   key: ${ENCRYPT_KEY}
