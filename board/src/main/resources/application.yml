@@ -10,5 +10,8 @@ spring:
     name: board
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:local}
-  config:
-    import: optional:configserver:http://config:8888
+  cloud:
+    config:
+      enabled: true
+      import: optional:configserver:http://config:8888
+      label: master
