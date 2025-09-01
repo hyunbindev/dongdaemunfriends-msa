@@ -1,4 +1,7 @@
 spring:
+  config:
+    import: configserver:http://config:8888/board/prod/master
   cloud:
     config:
-      import: configserver:http://config:8888/board/prod/master
+    name: board
+    profile: prod
