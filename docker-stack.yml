@@ -40,6 +40,7 @@ services:
     image: hyunbindev/dongdaemunfriends-board:latest
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - CONFIG_SERVER=http://config:8888
     networks:
       - app-network
     deploy:
