@@ -1,2 +1,2 @@
-# dongdaemunkiller
+# dongdaemunfriends
 social management for dongdaemun
