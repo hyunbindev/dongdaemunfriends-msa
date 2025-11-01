@@ -1,2 +1,2 @@
-# dongdaemunfriends-msa
+# dongdaemunfriends
 dongdaemunfriends-msa Repository 
